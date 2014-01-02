@@ -8,7 +8,7 @@ public class Repl {
     public static void main(String[] args) {
 	intro();
 	String input = read();	
-	while (input != null) {
+	while (input != null) {	    
 	    print(eval(input));
 	    input = read();
 	}
@@ -23,7 +23,7 @@ public class Repl {
     }
 
     public static MNumber eval(String input) {
-	List<Token> tokens = Lexer.tokenize(input);
+	Queue<Token> tokens = Lexer.tokenize(input);
 	MExpression expr = new MExpression(tokens);
 	return expr.evaluate();
     }

@@ -1,13 +1,13 @@
 package com.shermanpay.mex;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Lexer {
-    public static List<Token> tokenize(String code) {
-	List<Token> tokens = new ArrayList<Token>();
+    public static Queue<Token> tokenize(String code) {
+	Queue<Token> tokens = new LinkedList<Token>();
 	
 	Pattern tokenPattern = buildTokenPattern();
 

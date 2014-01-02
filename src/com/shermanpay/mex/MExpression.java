@@ -1,6 +1,6 @@
 package com.shermanpay.mex;
 
-import java.util.List;
+import java.util.Queue;
 public class MExpression {
     private MExpressionNode overallRoot;
     private int size;
@@ -20,17 +20,28 @@ public class MExpression {
 	size = 1;
     }
 
-    public MExpression(List<Token> tokens) {
-	MExpressionNode left = new MExpressionNode(tokens.get(0).data());
-	for (int i = 1; i < tokens.size(); i+=2) {
-	    MOperator operator = MOperators.getOperator(tokens.get(i).data());
+    public MExpression(Queue<Token> tokens) {
+	MExpressionNode left = new MExpressionNode(tokens.remove().data());
+	while(!tokens.isEmpty()) {
+	    MOperator operator = MOperators.getOperator(tokens.remove().data());
+
+	    MExpressionNode right = new MExpressionNode(tokens.remove().data());
+	    Token nextToken = tokens.peek();
+	    if (nextToken != null && MOperators.hasPrecedence(nextToken.data())) {
+	    	// Next operator is '*' or '/'
+	    	MOperator op = MOperators.getOperator(tokens.remove().data());
+	    	MNumber afterOperator =
+	    	    new MInteger(Integer.parseInt(tokens.remove().data()));
+	    	right = new MExpressionNode(op.intEval((MInteger)right.element, 
+	    					       (MInteger)afterOperator));
+	    }
+	    
 	    overallRoot =
-		new MExpressionNode(left,
-				    operator,
-				    new MExpressionNode(tokens.get(i+1).data()));
+		new MExpressionNode(left, operator, right);
 	    left = overallRoot;
 	}
     }
+
 
     public MNumber evaluate() {
 	return evalHelper(overallRoot);
