@@ -1,0 +1,49 @@
+<project name="Mex" default="dist" basedir=".">
+    <description>
+    Library for mathematical expressions
+  </description>
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="classes" location="${build}/classes"/>
+  <property name="dist" location="dist"/>
+
+  <target name="init">
+    <!-- Create time stamp -->
+    <tstamp/>
+    <mkdir dir="${build}"/>
+    <mkdir dir="${classes}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${classes}"/>
+  </target>
+
+  <target name="test" depends="compile"
+	  description="runs tests">
+    <java classname="com.shermanpay.mex.Test">
+      <classpath>
+	<pathelement location="${classes}"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="repl" depends="compile">
+    <java classname="com.shermanpay.mex.Repl">
+      <classpath>
+	<pathelement location="${classes}"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="dist" depends="compile">
+    <mkdir dir="${dist}"/>
+    <jar jarfile="${dist}/mex-${DSTAMP}.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+
+
+</project>

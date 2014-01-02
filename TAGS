@@ -1,0 +1,122 @@
+
+src/com/shermanpay/mex/MOperator.java,33
+public interface MOperator 3,29
+
+src/com/shermanpay/mex/Test.java,70
+public class Test 7,94
+    public static void main(Test.main10,120
+
+src/com/shermanpay/mex/Token.java,877
+public class Token 3,29
+    public static enum TokenType Token.TokenType4,50
+	WHITESPACE(Token.TokenType.WHITESPACE5,85
+	BINARYOP(Token.TokenType.BINARYOP6,109
+	NUMBER(Token.TokenType.NUMBER7,133
+	public Token.TokenType.public9,155
+	public final Token.TokenType.final9,155
+	public final String Token.TokenType.String9,155
+	public final String pattern;Token.TokenType.pattern9,155
+	private Token.TokenType.private11,186
+	private TokenType(Token.TokenType.TokenType11,186
+	private TokenType(String Token.TokenType.String11,186
+	private TokenType(String pattern)Token.TokenType.pattern11,186
+    private TokenType type;Token.type17,263
+    private String data;Token.data18,291
+    public Token(Token.Token20,317
+    public TokenType type(Token.type25,410
+    public String data(Token.data29,466
+    public String toString(Token.toString33,514
+
+src/com/shermanpay/mex/MNumber.java,31
+public interface MNumber 3,29
+
+src/com/shermanpay/mex/TestNode.java,332
+public class TestNode 3,29
+    TestNode left;TestNode.left4,53
+    String data;TestNode.data5,72
+    TestNode right;TestNode.right6,89
+    public TestNode(TestNode.TestNode8,110
+    public TestNode(TestNode.TestNode10,135
+    public TestNode(TestNode.TestNode14,196
+    public String toString(TestNode.toString20,328
+
+src/com/shermanpay/mex/MElement.java,32
+public interface MElement 3,29
+
+src/com/shermanpay/mex/Parser.java,109
+public class Parser 4,49
+    public static MExpression buildExpressionTree(Parser.buildExpressionTree6,76
+
+src/com/shermanpay/mex/MInteger.java,424
+public class MInteger 3,29
+    private int value;MInteger.value4,82
+    public MInteger(MInteger.MInteger6,106
+    public MInteger(MInteger.MInteger10,149
+    public int intValue(MInteger.intValue14,197
+    public double decValue(MInteger.decValue18,247
+    public MInteger intEval(MInteger.intEval22,308
+    public MInteger intEval(MInteger.intEval26,388
+    public String toString(MInteger.toString31,477
+
+src/com/shermanpay/mex/Repl.java,380
+public class Repl 5,67
+    private static final Console console Repl.console6,87
+    private static final String PROMPT Repl.PROMPT7,148
+    public static void main(Repl.main8,198
+    public static void intro(Repl.intro17,359
+    public static String read(Repl.read21,438
+    public static MNumber eval(Repl.eval25,513
+    public static void print(Repl.print31,682
+
+src/com/shermanpay/mex/Lexer.java,219
+public class Lexer 8,145
+    public static List<Token> tokenize(Lexer.tokenize9,166
+    public static Pattern buildTokenPattern(Lexer.buildTokenPattern26,527
+    public static Token getToken(Lexer.getToken36,852
+
+src/com/shermanpay/mex/TestTree.java,288
+public class TestTree 3,29
+    TestNode overallRoot;TestTree.overallRoot4,53
+    public TestTree(TestTree.TestTree5,83
+    public TestTree(TestTree.TestTree7,114
+    public String toString(TestTree.toString11,191
+    private String toStringHelper(TestTree.toStringHelper15,266
+
+src/com/shermanpay/mex/MExpression.java,1461
+public class MExpression 4,52
+    private MExpressionNode overallRoot;MExpression.overallRoot5,79
+    private int size;MExpression.size6,120
+    private MNumber overallValue;MExpression.overallValue7,142
+    public MExpression(MExpression.MExpression9,177
+    public MExpression(MExpression.MExpression11,206
+    public MExpression(MExpression.MExpression16,292
+    public MExpression(MExpression.MExpression23,506
+    public MNumber evaluate(MExpression.evaluate35,888
+    private MNumber evalHelper(MExpression.evalHelper39,960
+    public int size(MExpression.size50,1230
+    public String toString(MExpression.toString54,1275
+    private String toStringHelper(MExpression.toStringHelper58,1350
+    public class MExpressionNode MExpression.MExpressionNode67,1553
+	public MExpressionNode left;MExpression.MExpressionNode.left68,1588
+	public MExpressionNode right;MExpression.MExpressionNode.right69,1618
+	public MElement element;MExpression.MExpressionNode.element70,1649
+	public MExpressionNode(MExpression.MExpressionNode.MExpressionNode72,1677
+	public MExpressionNode(MExpression.MExpressionNode.MExpressionNode76,1788
+	public MExpressionNode(MExpression.MExpressionNode.MExpressionNode80,1866
+	public MExpressionNode(MExpression.MExpressionNode.MExpressionNode84,1934
+	public MExpressionNode(MExpression.MExpressionNode.MExpressionNode88,2011
+	public String toString MExpression.MExpressionNode.toString95,2191
+
+src/com/shermanpay/mex/MOperators.java,682
+public class MOperators 3,29
+    public static final MPlus PLUS MOperators.PLUS4,55
+    public static final MMinus MINUS MOperators.MINUS5,105
+    public static MOperator getOperator(MOperators.getOperator7,163
+    public static class MPlus MOperators.MPlus18,337
+	public MInteger intEval(MOperators.MPlus.intEval21,433
+	public MInteger intEval(MOperators.MPlus.intEval25,511
+	public String toString(MOperators.MPlus.toString29,623
+    private static class MMinus MOperators.MMinus34,685
+	public MInteger intEval(MOperators.MMinus.intEval37,783
+	public MInteger intEval(MOperators.MMinus.intEval41,861
+	public String toString(MOperators.MMinus.toString45,969
