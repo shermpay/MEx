@@ -22,12 +22,25 @@ public class MExpression {
 
     public MExpression(Queue<Token> tokens) {
 	MExpressionNode left = new MExpressionNode(tokens.remove().data());
+
+	Token nextToken = tokens.peek();
+	if (nextToken != null &&
+	    MOperators.getOperator(nextToken.data()).hasPrecedence()) {
+	    	// Next operator is '*' or '/'
+	    	MOperator op = MOperators.getOperator(tokens.remove().data());
+	    	MNumber afterOperator =
+	    	    new MInteger(Integer.parseInt(tokens.remove().data()));
+	    	left = new MExpressionNode(op.intEval((MInteger)left.element, 
+	    					       (MInteger)afterOperator));
+		overallRoot = left;
+	}
+
 	while(!tokens.isEmpty()) {
 	    MOperator operator = MOperators.getOperator(tokens.remove().data());
-
 	    MExpressionNode right = new MExpressionNode(tokens.remove().data());
-	    Token nextToken = tokens.peek();
-	    if (nextToken != null && MOperators.hasPrecedence(nextToken.data())) {
+	    nextToken = tokens.peek();
+	    if (nextToken != null &&
+		MOperators.getOperator(nextToken.data()).hasPrecedence()) {
 	    	// Next operator is '*' or '/'
 	    	MOperator op = MOperators.getOperator(tokens.remove().data());
 	    	MNumber afterOperator =

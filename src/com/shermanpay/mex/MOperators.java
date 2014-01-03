@@ -21,10 +21,6 @@ public class MOperators {
 	}
     }
 
-    public static boolean hasPrecedence(String opString) {
-	return opString.equals("*") || opString.equals("/");
-    }
-
     private static class MAdd implements MOperator {
 	public static final String string = "+";
 
@@ -36,6 +32,10 @@ public class MOperators {
 	    return new MInteger(x.intValue() + y.intValue());
 	}
     
+	public boolean hasPrecedence() {
+	    return false;
+	}
+
 	public String toString() {
 	    return string;
 	}
@@ -50,6 +50,10 @@ public class MOperators {
 
 	public MInteger intEval(MNumber x, MNumber y) {
 	    return new MInteger(x.intValue() - y.intValue());
+	}
+
+	public boolean hasPrecedence() {
+	    return false;
 	}
 
 	public String toString() {
@@ -68,6 +72,10 @@ public class MOperators {
 	    return new MInteger(x.intValue() * y.intValue());
 	}
 
+	public boolean hasPrecedence() {
+	    return true;
+	}
+
 	public String toString() {
 	    return string;
 	}
@@ -82,6 +90,10 @@ public class MOperators {
 
 	public MInteger intEval(MNumber x, MNumber y) {
 	    return new MInteger(x.intValue() / y.intValue());
+	}
+
+	public boolean hasPrecedence() {
+	    return true;
 	}
 
 	public String toString() {
