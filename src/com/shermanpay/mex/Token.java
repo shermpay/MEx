@@ -1,9 +1,15 @@
 package com.shermanpay.mex;
 
+/**
+ * Token class to define rules for all tokens
+ * Used for lexical analysis
+ * @author Sherman Pay Jing Hao
+ * @version 0.1
+ */
 public class Token {
     public static enum TokenType {
 	WHITESPACE("[ \t\n]"),
-	BINARYOP("[*|+|/|-]"),
+	BINARYOP("[\\*|\\+|/|-]"),
 	NUMBER("-?[0-9]+");
 
 	public final String pattern;
@@ -12,7 +18,6 @@ public class Token {
 	    this.pattern = pattern;
 	}
     }
-
 
     private TokenType type;
     private String data;

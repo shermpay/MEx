@@ -37,7 +37,12 @@
 
   <target name="dist" depends="compile">
     <mkdir dir="${dist}"/>
-    <jar jarfile="${dist}/mex-${DSTAMP}.jar" basedir="${build}"/>
+    <jar jarfile="${dist}/mex-${DSTAMP}.jar" basedir="${build}">
+      <manifest>
+	<attribute name="Class-Path" value="${classes}"/>
+	<attribute name="Main-Class" value="com.shermanpay.mex.Repl"/>
+      </manifest>
+    </jar>
   </target>
 
   <target name="clean">

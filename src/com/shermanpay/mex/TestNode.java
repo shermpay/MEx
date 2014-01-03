@@ -1,5 +1,10 @@
 package com.shermanpay.mex;
 
+/**
+ * Node class for testing
+ * @author Sherman Pay Jing Hao
+ * @version 0.1
+ */
 public class TestNode {
     TestNode left;
     String data;

@@ -1,11 +1,21 @@
 package com.shermanpay.mex;
 
+/**
+ * Class Containing all operators
+ * @author Sherman Pay Jing Hao
+ * @version 0.1
+ */
 public class MOperators {
     public static final MAdd ADD = new MAdd();
     public static final MSubtract SUBTRACT = new MSubtract();
     public static final MMultiply MULTIPLY = new MMultiply();
     public static final MDivide DIVIDE = new MDivide();
     
+    /**
+     * Gets the operator given String representation of operators
+     * @param opString - String representation of operator
+     * @return Constant MOperator object
+     */
     public static MOperator getOperator(String opString) {
 	switch (opString) {
 	    case "+":
@@ -21,6 +31,9 @@ public class MOperators {
 	}
     }
 
+    /**
+     * Add operator class
+     */
     private static class MAdd implements MOperator {
 	public static final String string = "+";
 
@@ -41,6 +54,9 @@ public class MOperators {
 	}
     }
     
+    /**
+     * Subtract operator class
+     */
     private static class MSubtract implements MOperator {
 	public static final String string = "-";
 
@@ -61,6 +77,9 @@ public class MOperators {
 	}
     }
 
+    /**
+     * Multiply operator class
+     */
     private static class MMultiply implements MOperator {
 	public static final String string = "*";
 
@@ -81,6 +100,9 @@ public class MOperators {
 	}
     }
 
+    /**
+     * Divide operator class
+     */
     private static class MDivide implements MOperator {
 	public static final String string = "/";
 

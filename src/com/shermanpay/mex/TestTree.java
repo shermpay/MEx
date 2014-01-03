@@ -1,5 +1,9 @@
 package com.shermanpay.mex;
 
+/**
+ * Tree class for testing
+ * @author Sherman Pay Jing Hao
+ */
 public class TestTree {
     TestNode overallRoot;    
     public TestTree() {};

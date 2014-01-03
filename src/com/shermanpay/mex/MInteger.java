@@ -1,5 +1,10 @@
 package com.shermanpay.mex;
 
+/**
+ * Wrapper class for Java Integers
+ * @author Sherman Pay Jing Hao
+ * @version 0.1
+ */
 public class MInteger implements MNumber {
     private int value;
 
