@@ -1,6 +1,6 @@
 package com.shermanpay.mex;
 
-public class MInteger implements MNumber, MOperator{
+public class MInteger implements MNumber {
     private int value;
 
     public MInteger() {
@@ -19,14 +19,9 @@ public class MInteger implements MNumber, MOperator{
 	return (double)value;
     }
 
-    public MInteger intEval(int x, int y) {
+    public MInteger intEval() {
 	return new MInteger(value);
     }
-
-    public MInteger intEval(MNumber x, MNumber y) {
-	return new MInteger(value);
-    }
-
 
     public String toString() {
 	return Integer.toString(value);

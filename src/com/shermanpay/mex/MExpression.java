@@ -48,14 +48,14 @@ public class MExpression {
     }
 
     private MNumber evalHelper(MExpressionNode root) {
-	if (root == null) {
-	    return new MInteger(0);
+	if (root.isNumber()) {
+	    return ((MNumber)root.element).intEval();
+	} else {
+	    MOperator op = (MOperator)root.element;
+	    MNumber left = evalHelper(root.left);
+	    MNumber right = evalHelper(root.right);
+	    return op.intEval(left, right);
 	}
-
-	MOperator op = (MOperator)root.element;
-	MNumber left = evalHelper(root.left);
-	MNumber right = evalHelper(root.right);
-	return op.intEval(left, right);
     }
 
     public int size() {
@@ -79,7 +79,7 @@ public class MExpression {
 	public MExpressionNode left;
 	public MExpressionNode right;
 	public MElement element;
-	
+
 	public MExpressionNode(String intString) {
 	    this.element = new MInteger(Integer.parseInt(intString));
 	}
@@ -101,6 +101,10 @@ public class MExpression {
 	    this.left = left;
 	    this.element = element;
 	    this.right = right;
+	}
+
+	public boolean isNumber() {
+	    return this.left == null && this.right == null;
 	}
 
 	public String toString () {
