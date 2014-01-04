@@ -10,8 +10,8 @@ Setup
 
 ### Building ###
 First clone the project: `git clone git@github.com:shermpay/MEx.git`
-Build with: `ant build`
 
+Build with: `ant build`
 
 Using
 -----
@@ -19,7 +19,7 @@ Run the interactive REPL with `ant repl`
 
 Current Support
 ---------------
-* Basic mathematical operators ** + - * / **
+* Basic mathematical operators "+ - * /"
 
 Future Support
 --------------
